@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypes</title>
+</head>
+<body>
+    
+
+    <script>
+
+        /*var car = {
+            name: 'Audi',
+            age: '2010',
+            model: 'A6'
+        }
+
+        console.log(car.__proto__)*/
+
+
+        function car(make, model, engine){
+            this.make = make,
+            this.model = model,
+            this.engine = engine
+            this.getInfo = function () {
+                return this.make + ' ' + this.model + ' ' + this.engine
+            }
+        }
+
+        let car1 = new car('VW', 'Passat', '1.9TDI')
+
+        function coupe(make, model, engine, doors){
+            car.call(this,make,model,engine);
+            this.doors = doors;
+        }
+
+        let car2 = new coupe('Opel', 'Astra', '1.8GTC', 3)
+
+        document.write(car2.engine)
+
+
+    </script>
+</body>
+</html>
