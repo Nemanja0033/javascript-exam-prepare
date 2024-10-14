@@ -35,15 +35,14 @@ console.log("Too fast!");
 console.log("Incorrect value"); 
 }*/
 
-switch (expression) { 
-    case label_1: 
-    statements_1 
-    break; 
-    case label_2: 
-    statements_2 
-    break; 
+var speed = 100;
 
+switch (speed) { 
+    case 100:
+    console.log('Too Fast!!')
+    break;
+    case 200: 
+    console.log('You are Maniac!!!')
     default: 
-    statements_def 
-    break; 
+
     }

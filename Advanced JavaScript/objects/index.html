@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let myObject = {
+            name: 'Nemanja',
+            age: 22,
+
+            getInfo: function (){
+                return this.name + this.age
+            }
+        }
+
+        let myObject2 = Object();
+        myObject2.name = 'Nemanja';
+        myObject2.age = 22;
+
+        
+        function person(name, age, job){
+            this.name = name;
+            this.age = age;
+            this.job = job;
+
+            this.getInfo = function () {
+               return this.name + ' ' + this.age + ' ' + 'yrs old'
+            }
+        } 
+
+        let person1 = new person('Nemanja', 22, 'Frontend Programmer');
+
+        document.write(person1.getInfo())
+    </script>
+</body>
+</html>
