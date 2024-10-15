@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    
+    <script>
+
+      function Coupone(name, lastname){
+        var code  = (Math.random() * 10e16).toString();
+        this.name = name;
+        this.lastname = lastname;
+
+        this.getCode = function() {
+            return code;
+        }
+      }
+
+      var coupone1 = new Coupone('Nemanja', 'Antonijevic');
+
+      console.log(coupone1.getCode())
+
+
+      let sayHello = (function () {
+        const greting = 'Hello';
+
+        return{
+            to: function (name) {
+               return greting + ' ' + name;
+            }
+        }
+      })
+
+      let hello = sayHello().to('Nemanja')
+
+      console.log(hello)
+
+    </script>
+</body>
+</html>

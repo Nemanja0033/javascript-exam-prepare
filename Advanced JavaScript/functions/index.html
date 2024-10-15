@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-invoking functions | functions insinde function . . . </title>
+</head>
+<body>
+    
+
+    <script>
+
+        (function () {
+            console.log('Hello from self-invoking function!')
+        })()
+
+        function substractSquares (a,b) {
+            function square (x){
+                return x * x;
+            }
+
+            return square(a) - square(b)
+        }
+
+        console.log(substractSquares(6, 4))
+
+    </script>
+</body>
+</html>
