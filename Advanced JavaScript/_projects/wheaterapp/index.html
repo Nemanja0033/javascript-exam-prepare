@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheaterapp</title>
+</head>
+<body>
+    <input id="input" type="text" placeholder="enter a city name">
+    <button id="btn">Search</button>
+    <h1 id="temp"></h1>
+    <h3 id="details"></h3>
+    
+
+    <script>
+
+        let input = document.getElementById('input');
+        let btn = document.getElementById('btn');
+        let output = document.getElementById('temp');
+        let details = document.getElementById('details');
+
+        async function checkWheater(city){
+            const apiKey = 'ce374996745ec5aca1e11ca7c7d1c368'; 
+            const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
+
+            try{
+             const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+             const data = await response.json();
+             console.log(data)
+             output.innerText = data.name + ' ' + Math.round(data.main.temp) + ' ' + '°C';
+             details.innerText = data.weather[0].description;
+            }
+            catch (err){
+                console.log(err);
+            }
+
+        }
+
+        btn.addEventListener('click', function () {
+            checkWheater(input.value);
+        })
+
+
+
+
+
+    </script>
+</body>
+</html>
